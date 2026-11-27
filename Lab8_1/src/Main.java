@@ -1,31 +1,22 @@
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        FastScanner scanner = new FastScanner(System.in);
-        if (!scanner.hasNext()) {
-            return;
-        }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
         int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++){
             array[i] = scanner.nextInt();
         }
 
         PrefixSum prefixSum = new PrefixSum(array);
-        PrintWriter out = new PrintWriter(System.out);
 
-        while (scanner.hasNext()) {
+        while (scanner.hasNextInt()){
             int i = scanner.nextInt();
-            if (!scanner.hasNext()) {
-                break;
-            }
             int j = scanner.nextInt();
-            out.println(prefixSum.getRangeSum(i, j));
-        }
 
-        out.flush();
+            System.out.println(prefixSum.getRangeSum(i, j));
+        }
     }
 }
